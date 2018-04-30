@@ -88,36 +88,36 @@ more environments.
 
 To build using Ninja, run:
 
-    utils/build-script --enable-tensorflow --release-debuginfo
+    ./swift/utils/build-script --enable-tensorflow --release-debuginfo
 
 When developing Swift, it helps to build what you're working on in a debug
 configuration while building the rest of the project with optimizations. Below
 are some examples of using debug variants:
 
-    utils/build-script --enable-tensorflow --release-debuginfo --debug-swift # Swift frontend built in debug
-    utils/build-script --enable-tensorflow --release-debuginfo --debug-swift-stdlib # Standard library built in debug
-    utils/build-script --enable-tensorflow --release-debuginfo --debug-swift --force-optimized-typechecker # Swift frontend sans type checker built in debug
+    ./swift/utils/build-script --enable-tensorflow --release-debuginfo --debug-swift # Swift frontend built in debug
+    ./swift/utils/build-script --enable-tensorflow --release-debuginfo --debug-swift-stdlib # Standard library built in debug
+    ./swift/utils/build-script --enable-tensorflow --release-debuginfo --debug-swift --force-optimized-typechecker # Swift frontend sans type checker built in debug
 
 Limiting the amount of debug code in the compiler has a very large impact on
 Swift compile times, and in turn the test execution time. If you want to build
 the entire project in debug, you can run:
 
-    utils/build-script  --enable-tensorflow --debug
+    ./swift/utils/build-script  --enable-tensorflow --debug
 
 For documentation of all available arguments, as well as additional usage
 information, see the inline help:
 
-    utils/build-script -h
+    ./swift/utils/build-script -h
 
 ### TensorFlow Support
 
 To enable TensorFlow support, specify the `--enable-tensorflow` flag:
 
-    utils/build-script --enable-tensorflow
+    ./swift/utils/build-script --enable-tensorflow
 
 By default, TensorFlow will be automatically cloned from GitHub and built from source using Bazel. If you want to build with custom TensorFlow headers and shared libraries, please specify the `tensorflow-host-include-dir` and `tensorflow-host-lib-dir` arguments:
 
-    utils/build-script --enable-tensorflow --tensorflow-host-include-dir=<path_to_tensorflow_headers> --tensorflow-host-lib-dir=<path_to_tensorflow_libraries>
+    ./swift/utils/build-script --enable-tensorflow --tensorflow-host-include-dir=<path_to_tensorflow_headers> --tensorflow-host-lib-dir=<path_to_tensorflow_libraries>
 
 Below is more information about the arguments:
 
@@ -203,7 +203,7 @@ described above.
 The simplest way to run the Swift test suite is by passing the `--test` and
 `--validation-test` flags to `build-script`:
 
-    utils/build-script --enable-tensorflow --test --validation-test
+    ./swift/utils/build-script --enable-tensorflow --test --validation-test
 
 Swift for TensorFlow adds the following new test suites:
 
